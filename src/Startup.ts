@@ -4,7 +4,7 @@ import { Server } from '@overnightjs/core';
 import { Logger } from '@overnightjs/logger';
 import * as mongoose from 'mongoose';
 
-class ExampleServer extends Server {
+class Startup extends Server {
     
     private readonly SERVER_STARTED = 'Example server started on port: ';
     
@@ -35,6 +35,24 @@ class ExampleServer extends Server {
             Logger.Imp(this.SERVER_STARTED + port);
         });
     }
+    /* 
+    const getData = async () => {
+    
+    Clients.countDocuments({}, async function(err, count){
+        if (!err && count === 0){
+            const dataClients = await getDataClients();
+            Clients.insertMany(dataClients);
+        }
+    })
+    Policies.countDocuments({}, async function(err, count){
+        if (!err && count === 0){
+            const dataPolicies = await getDataPolicies();
+            Policies.insertMany(dataPolicies);
+        }
+    })
+    
+}
+    */
 }
 
-export default ExampleServer;
+export default Startup;

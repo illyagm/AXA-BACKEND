@@ -1,13 +1,21 @@
-import * as mongoose from 'mongoose';
-import { Schema } from 'mongoose';
+import { Schema, Document, model } from 'mongoose';
 
-const PoliciesSchema: Schema = new Schema({
+export interface IPolicy extends Document{
+    id: String;
+    amountInsured: Number;
+    email: String;
+    inceptionDate: String;
+    installmentPayment: Boolean;
+    clientId: String;
+}
+
+const PolicySchema: Schema = new Schema({
     id: String,
     amountInsured: Number,
     email: String,
     inceptionDate: String,
     installmentPayment: Boolean,
-    clientId: String
+    clientId: String,
 });
 
-export default mongoose.model('Policy', PoliciesSchema);
+export default model<IPolicy>("Policy", PolicySchema);

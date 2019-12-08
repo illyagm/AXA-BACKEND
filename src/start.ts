@@ -1,5 +1,4 @@
-// tslint:disable-next-line
-import ExampleServer from './ExampleServer';
+import Startup from './Startup';
 
-const exampleServer = new ExampleServer();
-exampleServer.start(3000);
+const startup = new Startup();
+startup.start(3000);

@@ -11,7 +11,6 @@ export default class ClientService implements IClientService{
         return this.clientRepository.getById(id);
     }   
     public async getBy(filter: IClientFilter): Promise<any[]> {
-        
         return this.clientRepository.getBy(filter);
     }
 }

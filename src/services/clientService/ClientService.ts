@@ -4,7 +4,6 @@ import ClientRepository from '../../repositories/clientRepository/ClientReposito
 import IClientRepository from '../../repositories/clientRepository/IClientRepository';
 import { IPolicyService } from '../policyService/IPolicyService';
 import PolicyService from '../policyService/PolicyService';
-import { IPolicyFilter } from '../../interfaces/filters/IPolicyFilter';
 export default class ClientService implements IClientService{
     
     private clientRepository:IClientRepository=new ClientRepository();

@@ -1,7 +1,6 @@
 import IClientRepository from './IClientRepository';
 import { IClientFilter } from 'src/interfaces/filters/IClientFilter';
-import { json } from 'body-parser';
-import ClientSchema, { IClient } from '../../models/ClientSchema';
+import ClientSchema from '../../models/ClientSchema';
 
 export default class ClientRepository implements IClientRepository{
     public async getByPolicyNumber(policyNumber: string) {

@@ -6,6 +6,7 @@ import * as mongoose from 'mongoose';
 import ClientSchema from './models/ClientSchema';
 import PolicySchema from './models/PolicySchema';
 import Seed from './seedMethods/Seed';
+
 class Startup extends Server {
 
     private readonly SERVER_STARTED = 'Example server started on port: ';
@@ -37,7 +38,7 @@ class Startup extends Server {
             Logger.Imp(this.SERVER_STARTED + port);
         });
     }
-
+    //crear BD mongo
     public async getData (){
         const seedService = new Seed();
         ClientSchema.countDocuments({}, async function (err, count) {
@@ -56,7 +57,6 @@ class Startup extends Server {
                     console.log('COLLECTION POLICY ALREADY INSERTED. ' +count+ ' Policiess Found')
                 }            
         })
-
     }
     
 

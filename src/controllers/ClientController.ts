@@ -4,6 +4,7 @@ import { Logger } from '@overnightjs/logger';
 import ClientService from '../services/clientService/ClientService';
 import { IClientService } from '../services/clientService/IClientService';
 import {roleChecker} from '../middleware/customMiddleware';
+
 @Controller('client')
 export class ClientController {
     private clientService:IClientService = new ClientService();

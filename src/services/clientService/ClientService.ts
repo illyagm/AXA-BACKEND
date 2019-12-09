@@ -1,11 +1,20 @@
 import { IClientService } from './IClientService';
 import { IClientFilter } from '../../interfaces/filters/IClientFilter';
 import ClientRepository from '../../repositories/clientRepository/ClientRepository';
-import IClientRepository from 'src/repositories/clientRepository/IClientRepository';
-import Util from 'src/shared/Util';
+import IClientRepository from '../../repositories/clientRepository/IClientRepository';
+import { IPolicyService } from '../policyService/IPolicyService';
+import PolicyService from '../policyService/PolicyService';
+import { IPolicyFilter } from '../../interfaces/filters/IPolicyFilter';
 export default class ClientService implements IClientService{
-
+    
     private clientRepository:IClientRepository=new ClientRepository();
+
+    public async getByPolicyNumber(policyNumber: string): Promise<any> {
+        const policyService:IPolicyService = new PolicyService();
+        return policyService.getByPolicyNumber(policyNumber).then((policyData) => {
+            return this.clientRepository.getById(policyData[0].clientId);
+        })
+    }
 
     public getById(id: string): any {
         return this.clientRepository.getById(id);

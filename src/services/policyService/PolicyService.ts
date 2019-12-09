@@ -6,8 +6,13 @@ import ClientService from '../clientService/ClientService';
 import { IClientService } from '../clientService/IClientService';
 
 export default class PolicyService implements IPolicyService {
-
+    
     private policyRepository: IPolicyRepository = new PolicyRepository();
+    
+    
+    public async getByPolicyNumber(policyNumber: string):Promise<any> {
+        return this.policyRepository.getByPolicyNumber(policyNumber);
+    }
 
     public async getByClientName(clientName: string): Promise<any> {
         const clientService: IClientService = new ClientService();

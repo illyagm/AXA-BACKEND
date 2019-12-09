@@ -4,6 +4,9 @@ import { json } from 'body-parser';
 import ClientSchema, { IClient } from '../../models/ClientSchema';
 
 export default class ClientRepository implements IClientRepository{
+    public async getByPolicyNumber(policyNumber: string) {
+        return ClientSchema.find( {id : policyNumber})
+    }
     public async getById(id: string): Promise<any> {
         return ClientSchema.find( {id : id});
     }    

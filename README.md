@@ -1,4 +1,4 @@
-"# AXA-BACKEND" 
+AXA-BACKEND
 
 This API is designed for retrieving data from clients and policies. Implemented RoleMiddleware.
 

@@ -6,6 +6,8 @@ import * as mongoose from 'mongoose';
 import ClientSchema from './models/ClientSchema';
 import PolicySchema from './models/PolicySchema';
 import Seed from './seedMethods/Seed';
+import UserSchema from './models/UserSchema';
+import * as bcrypt from 'bcrypt';
 
 class Startup extends Server {
 
@@ -39,26 +41,39 @@ class Startup extends Server {
         });
     }
     //crear BD mongo
-    public async getData (){
+    public async getData() {
         const seedService = new Seed();
         ClientSchema.countDocuments({}, async function (err, count) {
-                if(!err && count === 0){
-                    const dataClients = await seedService.getDataClients();
-                    ClientSchema.insertMany(dataClients);
-                } else {
-                    console.log('COLLECTION CLIENT ALREADY INSERTED. ' +count+ ' Clients Found')
-                }            
+            if (!err && count === 0) {
+                const dataClients = await seedService.getDataClients();
+                ClientSchema.insertMany(dataClients);
+            } else {
+                console.log('COLLECTION CLIENT ALREADY INSERTED. ' + count + ' Clients Found')
+            }
         })
         PolicySchema.countDocuments({}, async function (err, count) {
-                if(!err && count ===0){
-                    const dataPolicies = await seedService.getDataPolicies();
-                    ClientSchema.insertMany(dataPolicies);
-                } else{
-                    console.log('COLLECTION POLICY ALREADY INSERTED. ' +count+ ' Policiess Found')
-                }            
+            if (!err && count === 0) {
+                const dataPolicies = await seedService.getDataPolicies();
+                ClientSchema.insertMany(dataPolicies);
+            } else {
+                console.log('COLLECTION POLICY ALREADY INSERTED. ' + count + ' Policiess Found')
+            }
+        })
+        UserSchema.countDocuments({}, async function (err, count) {
+            //hardcoded users
+            if (!err && count === 0) {
+                const password1 = "12345fbbb";
+                const password2 = "444432bb5";
+                const hashedPwd1 = await bcrypt.hash(password1, 10);
+                const hashedPwd2 = await bcrypt.hash(password2, 10);
+                const data = await UserSchema.insertMany([{ username: "John43", password: hashedPwd1, role: "Admin" }, { username: "Becky55", password: hashedPwd2, role: "User" }])
+            } else {
+                console.log('COLLECTION USERS ALREADY INSERTED. ' + count + ' Users Found')
+            }
+
         })
     }
-    
+
 
 }
 

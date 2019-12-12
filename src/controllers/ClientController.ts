@@ -3,7 +3,8 @@ import { Controller, Middleware, Get } from '@overnightjs/core';
 import { Logger } from '@overnightjs/logger';
 import ClientService from '../services/clientService/ClientService';
 import { IClientService } from '../services/clientService/IClientService';
-import {roleChecker} from '../middleware/customMiddleware';
+import checkJwt from '../middleware/checkJwt';
+import checkRole  from '../middleware/checkRole';
 
 @Controller('client')
 export class ClientController {
@@ -23,7 +24,7 @@ export class ClientController {
             res.send(clientData);
         });
     }
-    @Middleware(roleChecker)
+    @Middleware([checkJwt, checkRole])
     @Get('getClientByPolicyNumber')
     private getClientByPolicyNumber(req: Request, res: Response) {
         Logger.Info(req.body.policyNumber);

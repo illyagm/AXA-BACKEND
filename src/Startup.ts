@@ -7,7 +7,7 @@ import ClientSchema from './models/ClientSchema';
 import PolicySchema from './models/PolicySchema';
 import Seed from './seedMethods/Seed';
 import UserSchema from './models/UserSchema';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 
 class Startup extends Server {
 

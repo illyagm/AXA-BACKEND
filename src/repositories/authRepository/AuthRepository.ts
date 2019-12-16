@@ -1,6 +1,6 @@
 import { IAuthRepository } from './IAuthRepository';
 import UserSchema from '../../models/UserSchema';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import * as jwt from "jsonwebtoken";
 import config from "../../config/config";
 

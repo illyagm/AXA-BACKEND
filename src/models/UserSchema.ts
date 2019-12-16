@@ -13,12 +13,4 @@ const UserSchema: Schema = new Schema ({
     role: String,
 });
 
-export const hashPassword = () =>  {
-  this.password = bcrypt.hashSync(this.password, 8);
-}
-
-export const checkIfUnencryptedPasswordIsValid = (unencryptedPassword: string) => {
-  return bcrypt.compareSync(unencryptedPassword, this.password);
-}
-
 export default model<IUser>("User", UserSchema);

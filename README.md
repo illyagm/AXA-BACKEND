@@ -16,6 +16,11 @@ POSTMAN is highly recommended for testing the funcionality.
 3. Run the project. Command: npm run-dev start.ts
 4. Voilà, the project is set up.
 
+##### Error Codes
+
+Status 403 Forbidden: Admin Role is needed to access some routes. Returns "You shall not pass message"
+
 ## API DOCUMENTATION can be found here:
 
 https://documenter.getpostman.com/view/5920029/SWE6aJBx
+

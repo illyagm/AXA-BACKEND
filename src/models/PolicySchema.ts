@@ -1,6 +1,6 @@
 import { Schema, Document, model } from 'mongoose';
 
-export interface IPolicy extends Document{
+export interface IPolicy extends Document {
     id: String;
     amountInsured: Number;
     email: String;

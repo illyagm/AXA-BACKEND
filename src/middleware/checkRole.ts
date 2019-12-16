@@ -1,12 +1,13 @@
 import { Request, Response, NextFunction } from "express";
 import  UserSchema  from "../models/UserSchema";
-import * as mongoose from 'mongoose';
+
 export default async function checkRole (req: Request, res: Response, next: NextFunction) {
+    //Set the roles you want to filter
     const roles = ['Admin'];
     //Get the user ID from previous midleware
     const id = res.locals.jwtPayload.id;
     //Get user role from the database
-    let user;
+    let user:any;
     try {
       user = await UserSchema.find({_id : id});
     } catch (error) {

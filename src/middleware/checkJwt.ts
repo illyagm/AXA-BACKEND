@@ -5,7 +5,7 @@ import config from "../config/config";
 export default function checkJwt (req: Request, res: Response, next: NextFunction) {
   //Get the jwt token from the head
   const token = <string>req.headers["auth"];
-  let jwtPayload;
+  let jwtPayload:any;
 
   //Try to validate the token and get data
   try {
@@ -13,7 +13,7 @@ export default function checkJwt (req: Request, res: Response, next: NextFunctio
     res.locals.jwtPayload = jwtPayload;
   } catch (error) {
     //If token is not valid, respond with 401 (unauthorized)
-    res.status(401).send();
+    res.status(401).send("ERROR AUTH");
     return;
   }
 
@@ -25,6 +25,5 @@ export default function checkJwt (req: Request, res: Response, next: NextFunctio
   });
   res.setHeader("auth", newToken);
 
-  //Call the next middleware or controller
   next();
 };

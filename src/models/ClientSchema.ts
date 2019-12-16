@@ -1,6 +1,6 @@
 import { Schema, Document, model } from 'mongoose';
 
-export interface IClient extends Document{
+export interface IClient extends Document {
     id: String;
     name: String;
     email: String;

@@ -1,4 +1,4 @@
-import { IClientFilter } from 'src/interfaces/filters/IClientFilter';
+import { IClientFilter } from '../../interfaces/filters/IClientFilter';
 
 export default interface IClientRepository {
     getById(id : string):any;

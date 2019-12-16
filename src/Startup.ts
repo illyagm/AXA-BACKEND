@@ -47,6 +47,7 @@ class Startup extends Server {
             if (!err && count === 0) {
                 const dataClients = await seedService.getDataClients();
                 ClientSchema.insertMany(dataClients);
+                console.log('COLLECTION CLIENT INSERTED')
             } else {
                 console.log('COLLECTION CLIENT ALREADY INSERTED. ' + count + ' Clients Found')
             }
@@ -54,7 +55,8 @@ class Startup extends Server {
         PolicySchema.countDocuments({}, async function (err, count) {
             if (!err && count === 0) {
                 const dataPolicies = await seedService.getDataPolicies();
-                ClientSchema.insertMany(dataPolicies);
+                PolicySchema.insertMany(dataPolicies);
+                console.log('COLLECTION POLICY INSERTED')
             } else {
                 console.log('COLLECTION POLICY ALREADY INSERTED. ' + count + ' Policiess Found')
             }
@@ -66,7 +68,8 @@ class Startup extends Server {
                 const password2 = "444432bb5";
                 const hashedPwd1 = await bcrypt.hash(password1, 10);
                 const hashedPwd2 = await bcrypt.hash(password2, 10);
-                const data = await UserSchema.insertMany([{ username: "John43", password: hashedPwd1, role: "Admin" }, { username: "Becky55", password: hashedPwd2, role: "User" }])
+                const data = await UserSchema.insertMany([{ username: "John43", password: hashedPwd1, role: "Admin" }, { username: "Becky55", password: hashedPwd2, role: "User" }]);
+                console.log('COLLECTION USER INSERTED')
             } else {
                 console.log('COLLECTION USERS ALREADY INSERTED. ' + count + ' Users Found')
             }

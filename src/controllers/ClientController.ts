@@ -12,12 +12,16 @@ export class ClientController {
     private getByClientId(req: Request, res: Response) {
         this.clientService.getById(req.params.clientId).then((clientData) => {
             res.send(clientData);
+        }).catch((err) => {
+            res.sendStatus(400).send(err);
         });
     }
     @Get('getClientBy')
     private getBy(req: Request, res: Response) {
         this.clientService.getBy(req.body).then((clientData) => {
             res.send(clientData);
+        }).catch((err) => {
+            res.sendStatus(400).send(err);
         });
     }
     @Middleware([checkJwt, checkRole])

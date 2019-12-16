@@ -20,7 +20,29 @@ POSTMAN is highly recommended for testing the funcionality.
 
 Status 403 Forbidden: Admin Role is needed to access some routes. Returns "You shall not pass message"
 
-## API DOCUMENTATION can be found here:
+##### Auth Route, some routes require it.
+
+![Alt text](img/auth.PNG?raw=true "Title")
+
+##### GET Routes
+
+##### Filter Route
+![Alt text](img/getByFilter.PNG?raw=true "Title")
+
+##### Client data by ID
+![Alt text](img/getClientById.PNG?raw=true "Title")
+
+#### AUTH Required
+
+##### Client by Policy Number
+![Alt text](img/getClientByPolicyNumber.PNG?raw=true "Title")
+
+##### List of Policies by Client Name
+![Alt text](img/getPoliciesByClientName.PNG?raw=true "Title")
+
+
+## Full API DOCUMENTATION can be found here:
 
 https://documenter.getpostman.com/view/5920029/SWE6aJBx
+
 

@@ -11,7 +11,7 @@ import * as bcrypt from 'bcryptjs';
 
 class Startup extends Server {
 
-    private readonly SERVER_STARTED = 'Example server started on port: ';
+    private readonly SERVER_STARTED = 'Server started on port: ';
 
     constructor() {
         super(true);

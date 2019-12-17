@@ -19,7 +19,7 @@ POSTMAN is highly recommended for testing the functionality.
 
 1. Clone Repository.
 2. Install All Dependencies. Command: npm i
-3. Run the project. Command: npm run-dev start.ts
+3. Run the project. Command: npm run start-dev
 4. Voilà, the project is set up.
 
 ##### Error Codes
